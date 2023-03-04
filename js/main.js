@@ -52,42 +52,34 @@ function start() {
     let bombe = 0;
 
     if (scelta === 'normal') {
-        for (let i = 1; i <= 81; i++) {
-            max = 81;
-            bombe = 16;
-            const cella = creaCella('div', 'cella', scelta, i, randomArray(max, bombe));
-            appendiCella(container, cella);
-        }
+        max = 81;
+        bombe = 16;
     } else if (scelta === 'hard') {
-        for (let i = 1; i <= 49; i++) {
-            max = 49
-            bombe = 16;
-            const cella = creaCella('div', 'cella', scelta, i, randomArray(max, bombe));
-            appendiCella(container, cella);
-        }
+        max = 49
+        bombe = 16;
     } else {
-        for (let i = 1; i <= 100; i++) {
-            max = 100
-            bombe = 16;
-            const cella = creaCella('div', 'cella', scelta, i, randomArray(max, bombe));
-            appendiCella(container, cella);
-        }
+        max = 100
+        bombe = 16;
     }
 
-    let arrayBomb = randomArray(max);
+    let arrayBomb = randomArray(max, bombe);
     console.log(arrayBomb);
 
+    for (let i = 1; i <= max; i++) {
+        const cella = creaCella('div', 'cella', scelta, i, arrayBomb);
+        appendiCella(container, cella);
+    }
 }
 
-/*----------
-    MAIN 
- ----------*/
+    /*----------
+        MAIN 
+     ----------*/
 
-const container = document.querySelector(".griglia");
-const button = document.querySelector(".btn");
+    const container = document.querySelector(".griglia");
+    const button = document.querySelector(".btn");
 
 
-// Pulsante Play
-button.addEventListener('click', start);
+    // Pulsante Play
+    button.addEventListener('click', start);
 
 
