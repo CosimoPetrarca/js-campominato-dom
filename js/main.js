@@ -25,21 +25,16 @@ function appendiCella(container, element) {
 }
 
 // funzione che genera un array casuale 
-function generateRandomArray(max) {
+function randomArray(max) {
     let array = [];
     while (array.length < 16) {
-      let numeroRandom = Math.floor(Math.random() * max) + 1;
-      if (!array.includes(numeroRandom)) {
-        array.push(numeroRandom);
-      }
+        let numeroRandom = Math.floor(Math.random() * max) + 1;
+        if (!array.includes(numeroRandom)) {
+            array.push(numeroRandom);
+        }
     }
     return array;
-  }
-
-
-
-
-
+}
 
 // Crea Difficoltà
 function start() {
@@ -47,24 +42,30 @@ function start() {
     const scelta = difficult;
     container.innerHTML = '';
 
+    let max = 0;
+
     if (scelta === 'normal') {
         for (let i = 1; i <= 81; i++) {
+            max = 81;
             const cella = creaCella('div', 'cella', 'normal', i);
-            appendiCella(container, cella);      
+            appendiCella(container, cella);
         }
     } else if (scelta === 'hard') {
         for (let i = 1; i <= 49; i++) {
+            max = 49
             const cella = creaCella('div', 'cella', 'hard', i);
             appendiCella(container, cella);
         }
     } else {
         for (let i = 1; i <= 100; i++) {
+            max = 100
             const cella = creaCella('div', 'cella', 'easy', i);
             appendiCella(container, cella);
         }
     }
-    
 
+    let arrayBomb = randomArray(max);
+    console.log(arrayBomb);
 }
 
 /*----------
@@ -73,9 +74,10 @@ function start() {
 
 const container = document.querySelector(".griglia");
 const button = document.querySelector(".btn");
-let arrayBomb = generateRandomArray(81);
-console.log(arrayBomb); 
+
 
 
 // Pulsante Play
 button.addEventListener('click', start);
+
+
