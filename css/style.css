@@ -87,12 +87,12 @@ main {
     height: calc(100% / 7);
 }
 
-.show{
-    display: inherit;
-}
-
 .blue{
     background-color: lightblue;
+}
+
+.red{
+    background-color: lightcoral;
 }
 
 
