@@ -15,6 +15,7 @@ function creaCella(elemento, classe1, classe2, valore, arrayBomb) {
         if (arrayBomb.includes(valore)) {
             elementoCreato.classList.add('red');
             console.log("BOOM! Hai calpestato una bomba.");
+            alert("BOOM! Hai calpestato una bomba.")
         } else {
             elementoCreato.classList.add('blue');
             console.log("Non hai calpestato una bomba.");
